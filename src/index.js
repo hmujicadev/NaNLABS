@@ -3,10 +3,14 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import ChallengeProvider from './context/Challenge/ChallengeContext'
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ChallengeProvider>
+        <App />
+    </ChallengeProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

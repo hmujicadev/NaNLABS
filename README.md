@@ -1,70 +1,69 @@
-# Getting Started with Create React App
+# NaNLABS | NaNLABS challenge :punch:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Tabla de contenido :rocket:
 
-## Available Scripts
+- [Demo](#demo-bulb)
+- [Instalación](#instalación-wrench)
+- [Librerías](#librerías-package)
 
-In the project directory, you can run:
+### Demo :bulb:
 
-### `npm start`
+[![Deployed in Netlify](https://www.netlify.com/img/deploy/button.svg)](https://keen-brattain-571cc1.netlify.app/)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Instalación :wrench:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Recomiendo usar [yarn](https://yarnpkg.com/) a la hora de iniciar el proyecto por ser más rápido y seguro que sobre [npm](https://www.npmjs.com/), de igual forma siéntase libre de usar el que guste, para efectos de esta guía estaré usando *yarn*.
 
-### `npm test`
+#### Scripts disponibles:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Antes de ejecutar cualquier script del proyecto es necesario *instalar las dependencias* del mismo:
 
-### `npm run build`
+bash
+yarn install / npm install
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+##### Start
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Con este script usamos `webpack-dev-server` pero con un bundle optimizado para producción, también cuenta con watchers activos.
 
-### `npm run eject`
+bash
+yarn start
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+##### Build
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Este script usa webpack para crear un empaquetado del proyecto en la carpeta *build* listo para ser puesto en producción
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+bash
+yarn build
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+##### Lint
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Se usa para detectar errores de formato con [ESlint](https://eslint.org/).
 
-### Code Splitting
+bash
+yarn lint
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
+##### Lint:fix
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Se usa para darle el formato correcto al proyecto.
 
-### Making a Progressive Web App
+bash
+yarn lint:fix
+### Librerías :package:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Librerías usadas en el proyecto:
 
-### Advanced Configuration
+- [React](https://es.reactjs.org/), librería de Javascript para la creación de interfaces de usuario. Se usó para crear los distintos componentes que requería la app.
+- [React-hook-form](https://react-hook-form.com/), librería de React para la validación de formularios, en su página oficial muestran su rendimiento frente a otras populares como Formik o Redux-form.
+- [Axios](https://github.com/axios/axios), cliente http para Javascript, empleado para hacer llamadas a servicios externos, ahorra mucho trabajo.
+- [Tailwind](https://tailwindcss.com/), Tailwind CSS es un framework de CSS de código abierto​ para el diseño de páginas web.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Como dependecias de desarrollo tenemos:
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- [Webpack](https://webpack.js.org/), un empaquetador de módulos estáticos para aplicaciones de Javascript modernas, sirve para automatizar tareas, procesar, minificar y optimizar archivos quedando listos para producción.
+- [Babel](https://babeljs.io/docs/en/), es un transpilador de Javascript moderno (ES10) a versiones con mayor compatibilidad (ES5).
+- [ESlint](https://eslint.org/), herramienta de análisis de código estático, ayuda a escribir código consistente a lo largo del proyecto.
+- [Prettier](https://prettier.io/), herramienta para formatear el código de forma automática.
