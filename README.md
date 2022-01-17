@@ -2,13 +2,9 @@
 
 ### Tabla de contenido :rocket:
 
-- [Demo](#demo-bulb)
 - [Instalación](#instalación-wrench)
 - [Librerías](#librerías-package)
 
-### Demo :bulb:
-
-[![Deployed in Netlify](https://www.netlify.com/img/deploy/button.svg)](https://keen-brattain-571cc1.netlify.app/)
 
 ### Instalación :wrench:
 
