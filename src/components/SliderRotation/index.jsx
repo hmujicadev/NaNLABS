@@ -26,7 +26,7 @@ const SliderRotation = () => {
 
   // Functions
   const changeParameterRotation = () => {
-    const { label, value } = rotationFlip;
+    const { label, display_name: name, value } = rotationFlip;
     if (imageState.length > 0) {
       imageState.push({
         ...imageState[imageState.length - 1],
@@ -48,7 +48,7 @@ const SliderRotation = () => {
     slidesToShow: width < "769" ? 1 : 3,
     slidesToScroll: 1,
     swipe: false,
-    beforeChange: () => changeParameterRotation(),
+    beforeChange: (current, next) => changeParameterRotation(),
     afterChange: (next) => setActiveSlide(next),
   };
 
@@ -103,7 +103,7 @@ const SliderRotation = () => {
               )}
 
               <span className="font-bold opacity-60 capitalize">
-                {Rotation.name}
+                {Rotation.display_name}
               </span>
             </div>
           ))}
