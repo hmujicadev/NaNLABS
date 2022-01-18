@@ -7,7 +7,7 @@ import "slick-carousel/slick/slick-theme.css";
 import { ChallengeContext } from "../../context/Challenge/ChallengeContext";
 import { imgixAdjustments } from "../../constants/imgixParameters";
 
-const SliderAdjustment = ({ changeParameterValue }) => {
+const SliderAdjustment = () => {
   // Context
   const {
     imageSelected,
@@ -15,8 +15,7 @@ const SliderAdjustment = ({ changeParameterValue }) => {
     adjustmentSelected,
     imageState,
     imageUndo,
-    imageRedo,
-    setImageUndo,
+    
   } = useContext(ChallengeContext);
 
   // Hooks and variables
@@ -37,9 +36,6 @@ const SliderAdjustment = ({ changeParameterValue }) => {
 
   // Functions
   const addHistoryChange = () => {
-    console.log("imageUndo slider", imageUndo);
-    console.log("imageRedo slider", imageRedo);
-
     if (imageState.length > 1)
       if (
         imageUndo[imageUndo.length - 1] !== imageState[imageState.length - 1]
@@ -50,7 +46,6 @@ const SliderAdjustment = ({ changeParameterValue }) => {
           Object.entries(imageState[stateLength])
         );
         imageUndo.push(newImageUndo);
-        console.log("Nuevo estado", newImageUndo);
       }
   };
 

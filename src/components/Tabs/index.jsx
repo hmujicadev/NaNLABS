@@ -1,6 +1,3 @@
-/* eslint-disable react/jsx-no-useless-fragment */
-/* eslint-disable no-self-assign */
-/* eslint-disable jsx-a11y/anchor-has-content */
 import { useState, useEffect, useContext } from "react";
 import SliderAdjustment from "../SliderAdjustment";
 import SliderRotation from "../SliderRotation";
@@ -8,20 +5,14 @@ import { ChallengeContext } from "../../context/Challenge/ChallengeContext";
 import { imgixCategories } from "../../constants/imgixParameters";
 import Toast from "../Toast";
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
-}
-
 const Tabs = () => {
   // Context
   const {
     imageSelected,
     adjustmentSelected,
     rotationSelected,
-    rotationFlip,
     imageState,
     setImageState,
-    setImagesURLParams,
     updateImage,
   } = useContext(ChallengeContext);
 
@@ -39,7 +30,7 @@ const Tabs = () => {
   // Functions
   const changeParameterValue = async () => {
     const Rangevalue = await inputRange.value;
-    const { category, label, name } = await inputRange.dataset;
+    const { label, name } = await inputRange.dataset;
 
     if (Rangevalue > 0) {
       if (imageState.length > 0) {
@@ -56,8 +47,6 @@ const Tabs = () => {
     setImageState(await imageState);
 
     await updateImage();
-
-    // console.log(imageState);
   };
 
   const updateParametersSelected = () => {
@@ -86,7 +75,6 @@ const Tabs = () => {
   useEffect(() => {
     updateParametersSelected();
     if (inputRange.value) inputRange.value = inputRange.defaultValue;
-    // console.log("parametros", parametersSelected);
   }, [categories, adjustmentSelected]);
 
   useEffect(() => {
@@ -146,18 +134,14 @@ const Tabs = () => {
           </div>
           {categorieSelected === "Adjustment" ? (
             <div className="m-auto w-[45vh] md:w-[50vw] px-4">
-              <SliderAdjustment
-                changeParameterValue={() => changeParameterValue()}
-              />
+              <SliderAdjustment />
             </div>
           ) : (
             <div className="m-auto w-[45vh] md:w-[50vw] px-4">
-              <SliderRotation
-              // changeParameterRotation={() => changeParameterRotation()}
-              />
+              <SliderRotation />
             </div>
           )}
-          <Toast toast={toast} setToast={setToast} />;
+          <Toast toast={toast} setToast={setToast} />
         </>
       )}
     </div>

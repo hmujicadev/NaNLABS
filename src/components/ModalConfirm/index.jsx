@@ -1,10 +1,9 @@
 import { Dialog, Transition } from "@headlessui/react";
-import { Fragment, useState, useContext } from "react";
+import { Fragment, useContext } from "react";
 import { ChallengeContext } from "../../context/Challenge/ChallengeContext";
 
 const ModalConfirm = ({ isOpen, closeModal }) => {
-  const { setImageState, setImagesURLParams, setImageSelected, resetImage } =
-    useContext(ChallengeContext);
+  const { resetImage } = useContext(ChallengeContext);
 
   const ActionConfirm = () => {
     resetImage();

@@ -29,14 +29,17 @@ const Aside = () => {
           <h3 className="font-medium text-gray-900 md:text-center">
             Image URL
           </h3>
-          <button
-            type="button"
-            onClick={() => copyPathToClipboard()}
-            title="Copy to clipboard"
-            className="absolute left-24 md:right-0 -top-1 bg-white rounded-full h-8 w-8 flex items-center justify-center text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-          >
-            <ClipboardIcon className="h-6 " aria-hidden="true" />
-          </button>
+          {imageSelected && (
+            <button
+              type="button"
+              onClick={() => copyPathToClipboard()}
+              title="Copy to clipboard"
+              className="absolute left-24 md:left-0 -top-1 bg-white rounded-full h-8 w-8 flex items-center justify-center text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            >
+              <ClipboardIcon className="h-6 " aria-hidden="true" />
+            </button>
+          )}
+
           <div className=" mt-2 flex items-center justify-between text-ellipsis overflow-hidden">
             <span
               id="pathURL"

@@ -8,18 +8,6 @@ const axios = instance.create({
   }
 })
 
-// axios.interceptors.request.use(
-//   function (config) {
-//     // Do something before request is sent
-//     console.log('interceptors', config)
-//     return config
-//   },
-//   function (error) {
-//     console.log('req err', error)
-//     // Do something with request error
-//     return Promise.reject(error)
-//   }
-// )
 
 axios.interceptors.response.use(
   function (response) {

@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-no-target-blank */
-import { useContext, useState, useEffect } from "react";
+import { useContext, useState } from "react";
 import {
   PhotographIcon,
   ReplyIcon,
@@ -15,8 +15,6 @@ const BarButtons = ({ openModalImages }) => {
     imageSelected,
     imageRedo,
     imageUndo,
-    setImageRedo,
-    setImageUndo,
     imageState,
     updateImage,
     imagesURLParams,
@@ -40,18 +38,12 @@ const BarButtons = ({ openModalImages }) => {
         imageRedo.push(imageState[imageState.length - 1]);
         imageState.push(imageUndo[imageUndo.length - 1]);
         updateImage();
-        console.log("dentro back1");
       } else {
         imageRedo.push(imageUndo[imageUndo.length - 1]);
         imageState.push(imageUndo[imageUndo.length - 2]);
         imageUndo.splice(imageUndo.length - 1, 1);
         updateImage();
-        console.log("dentro back2");
       }
-      // imageRedo.push(imageState[imageState.length - 1]);
-      // if (Object.entries(imageState[imageState.length - 1]).length !== 0) {
-      //   imageState.push(imageUndo[imageUndo.length - 1]);
-      // }
     } else if (
       imageState[imageState.length - 1] !== imageUndo[imageUndo.length - 1]
     ) {
@@ -61,43 +53,15 @@ const BarButtons = ({ openModalImages }) => {
         updateImage();
       }
     }
-
-    // } else if (Object.entries(imageState[imageState.length - 1]).length !== 0) {
-    //
-    //   updateImage();
-    //   console.log("dentro back2");
-    // } else if (imageState[imageState.length - 2]) {
-    //   if (
-    //     imageState[imageState.length - 2] !== imageRedo[imageRedo.length - 1]
-    //   ) {
-    //     imageRedo.push(imageState[imageState.length - 2]);
-    //   }
-    //   console.log("dentro back 3");
-    //   updateImage();
-    // }
-
-    console.log("imageState", imageState);
-    console.log("imageUndo", imageUndo);
-    console.log("imageRedo", imageRedo);
-    console.log("fuera back");
   };
-
-  // useEffect(() => {
-  //   setHistoryPosition(imageRedoUndo.length - 1);
-  // }, [imagesURLParams]);
 
   const goNextHistory = () => {
     if (imageRedo.length >= 1) {
-      console.log("dentro next");
       imageUndo.push(imageRedo[imageRedo.length - 1]);
       imageState.push(imageRedo[imageRedo.length - 1]);
       imageRedo.splice(imageRedo.length - 1, 1);
       updateImage();
     }
-    console.log("imageState2", imageState);
-    console.log("imageUndo2", imageUndo);
-    console.log("imageRedo2", imageRedo);
-    console.log("fuera next");
   };
 
   return (

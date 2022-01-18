@@ -1,4 +1,4 @@
-import { useState, useContext, useEffect } from "react";
+import { useState, useContext } from "react";
 import { ArchiveIcon } from "@heroicons/react/solid";
 import { ChallengeContext } from "../../context/Challenge/ChallengeContext";
 import Card from "../Card";
@@ -22,20 +22,6 @@ const Body = () => {
   function openModalImages() {
     setIsOpen(true);
   }
-
-  // const adjustmentArray = () => {
-  //   // eslint-disable-next-line no-undef
-  //   const data = Object.keys(imageState).map((k) => imageState[k]);
-  // };
-
-  // const createImageURL = async () => {
-  //   // const newSrc = `${imageSelected.url}?` ;
-  //   adjustmentArray();
-  // };
-
-  // useEffect(() => {
-  //   createImageURL();
-  // }, [imageState]);
 
   return (
     <>

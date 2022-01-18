@@ -6,7 +6,6 @@ import {
   imgixAdjustments,
   imgixRotation,
   imgixRotationFlip,
-  imgixCategories,
 } from "../../constants/imgixParameters";
 
 export const ChallengeContext = createContext();
