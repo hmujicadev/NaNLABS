@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 import { useState, useContext } from "react";
 import { ClipboardIcon } from "@heroicons/react/solid";
 import { ChallengeContext } from "../../context/Challenge/ChallengeContext";
@@ -57,17 +58,19 @@ const Aside = () => {
           <div>
             <h3 className="font-medium text-gray-900">Modificators</h3>
             <dl className="max-h-[60vh] overflow-y-auto md:max-h-auto mt-2 border-t border-b border-gray-200 divide-y divide-gray-200 scroll-custom">
-              {Object.keys(imageState[imageState.length - 1]).map((key) => (
-                <div
-                  key={new Date()}
-                  className="py-3 flex justify-between text-sm font-medium"
-                >
-                  <dt className="text-gray-500">{key}</dt>
-                  <dd className="text-gray-900">
-                    {imageState[imageState.length - 1][key]}
-                  </dd>
-                </div>
-              ))}
+              {Object.keys(imageState[imageState.length - 1]).map(
+                (key, index) => (
+                  <div
+                    key={index}
+                    className="py-3 flex justify-between text-sm font-medium"
+                  >
+                    <dt className="text-gray-500">{key}</dt>
+                    <dd className="text-gray-900">
+                      {imageState[imageState.length - 1][key]}
+                    </dd>
+                  </div>
+                )
+              )}
             </dl>
           </div>
         )}

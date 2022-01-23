@@ -26,7 +26,7 @@ const SliderRotation = () => {
 
   // Functions
   const changeParameterRotation = () => {
-    const { label, display_name: name, value } = rotationFlip;
+    const { label, value } = rotationFlip;
     if (imageState.length > 0) {
       imageState.push({
         ...imageState[imageState.length - 1],
@@ -48,7 +48,7 @@ const SliderRotation = () => {
     slidesToShow: width < "769" ? 1 : 3,
     slidesToScroll: 1,
     swipe: false,
-    beforeChange: (current, next) => changeParameterRotation(),
+    beforeChange: () => changeParameterRotation(),
     afterChange: (next) => setActiveSlide(next),
   };
 
@@ -65,18 +65,19 @@ const SliderRotation = () => {
           Object.entries(imageState[stateLength])
         );
         imageUndo.push(newImageUndo);
+        updateImage(imageState[imageState.length - 1]);
       }
   };
 
   // Listeners
   useEffect(() => {
     setRotationFlip(imgixRotationFlip[activeSlide]);
-    updateImage(imageState[imageState.length - 1]);
+
     addHistoryChange();
   }, [activeSlide]);
 
   useEffect(() => {
-    setRotationFlip(imgixRotationFlip[1]);
+    setRotationFlip(imgixRotationFlip[0]);
     setTimeout(() => {
       setLoadingSlider(false);
       sliderRef.current.slickNext();

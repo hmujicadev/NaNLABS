@@ -41,8 +41,8 @@ const BarButtons = ({ openModalImages }) => {
         JSON.stringify(imageUndo[imageUndo.length - 1])
       ) {
         setImageRedo(imageRedo.concat(imageUndo[imageUndo.length - 1]));
-        setImageState(imageState.concat(imageUndo[imageUndo.length - 2]));
-        updateImage(imageUndo[imageUndo.length - 2]);
+        setImageState(imageState.concat(imageUndo[imageUndo.length - 1]));
+        updateImage(imageUndo[imageUndo.length - 1]);
         setImageUndo(
           imageUndo.filter((state, index) => index !== imageUndo.length - 1)
         );

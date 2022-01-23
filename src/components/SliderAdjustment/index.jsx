@@ -29,13 +29,13 @@ const SliderAdjustment = () => {
     speed: 500,
     slidesToShow: width < "769" ? 1 : 3,
     slidesToScroll: 1,
-    // beforeChange: (current, next) => changeParameterValue(),
+    // beforeChange: (next) => setActiveSlide(next),
     afterChange: (next) => setActiveSlide(next),
   };
 
   // Functions
   const addHistoryChange = () => {
-    if (imageState.length > 1)
+    if (imageState.length)
       if (
         JSON.stringify(imageUndo[imageUndo.length - 1]) !==
         JSON.stringify(imageState[imageState.length - 1])
@@ -46,7 +46,7 @@ const SliderAdjustment = () => {
           Object.entries(imageState[stateLength])
         );
         setImageRedo([]);
-        setImageUndo(imageUndo.concat(newImageUndo));
+        setImageUndo([...imageUndo, newImageUndo]);
       }
   };
 
@@ -58,6 +58,7 @@ const SliderAdjustment = () => {
 
   useEffect(() => {
     setAdjustmentSelected(imgixAdjustments[0]);
+
     setTimeout(() => {
       setLoadingSlider(false);
     }, 500);
