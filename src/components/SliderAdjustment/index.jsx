@@ -1,5 +1,3 @@
-/* eslint-disable arrow-body-style */
-/* eslint-disable no-plusplus */
 import React, { useState, useEffect, useContext } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -14,8 +12,9 @@ const SliderAdjustment = () => {
     setAdjustmentSelected,
     adjustmentSelected,
     imageState,
+    setImageRedo,
     imageUndo,
-    
+    setImageUndo,
   } = useContext(ChallengeContext);
 
   // Hooks and variables
@@ -38,14 +37,16 @@ const SliderAdjustment = () => {
   const addHistoryChange = () => {
     if (imageState.length > 1)
       if (
-        imageUndo[imageUndo.length - 1] !== imageState[imageState.length - 1]
+        JSON.stringify(imageUndo[imageUndo.length - 1]) !==
+        JSON.stringify(imageState[imageState.length - 1])
       ) {
         const stateLength = imageState.length - 1;
 
         const newImageUndo = Object.fromEntries(
           Object.entries(imageState[stateLength])
         );
-        imageUndo.push(newImageUndo);
+        setImageRedo([]);
+        setImageUndo(imageUndo.concat(newImageUndo));
       }
   };
 

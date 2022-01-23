@@ -1,5 +1,5 @@
+/* eslint-disable func-names */
 /* eslint-disable prefer-arrow-callback */
-/* eslint-disable import/prefer-default-export */
 import instance from 'axios'
 
 const axios = instance.create({

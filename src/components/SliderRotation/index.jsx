@@ -56,7 +56,8 @@ const SliderRotation = () => {
   const addHistoryChange = () => {
     if (imageState.length > 1)
       if (
-        imageUndo[imageUndo.length - 1] !== imageState[imageState.length - 1]
+        JSON.stringify(imageUndo[imageUndo.length - 1]) !==
+        JSON.stringify(imageState[imageState.length - 1])
       ) {
         const stateLength = imageState.length - 1;
 
@@ -70,7 +71,7 @@ const SliderRotation = () => {
   // Listeners
   useEffect(() => {
     setRotationFlip(imgixRotationFlip[activeSlide]);
-    updateImage();
+    updateImage(imageState[imageState.length - 1]);
     addHistoryChange();
   }, [activeSlide]);
 

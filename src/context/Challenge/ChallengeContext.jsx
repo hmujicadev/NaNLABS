@@ -23,7 +23,7 @@ const ChallengeProvider = ({ children }) => {
   const [imageUndo, setImageUndo] = useState([{}]);
   const [rotationFlip, setRotationFlip] = useState(imgixRotationFlip[0]);
   const [rotationSelected, setRotationSelected] = useState(imgixRotation[0]);
-  const [imagesURLParams, setImagesURLParams] = useState();
+  const [imagesURLParams, setImagesURLParams] = useState(null);
 
   // Get image list by default
   const getImages = async () => {
@@ -52,15 +52,17 @@ const ChallengeProvider = ({ children }) => {
   };
 
   // Funtions
-  const updateImage = () => {
-    setImagesURLParams(
-      Object.values(imageState[imageState.length - 1]).join("&")
-    );
+  const updateImage = (change) => {
+    if (!change) {
+      setImagesURLParams();
+    } else {
+      setImagesURLParams(Object.values(change).join("&"));
+    }
   };
   const resetImage = () => {
     setImageSelected();
     setImageState([{}]);
-    setImageUndo([{}]);
+    setImageUndo([]);
     setImageRedo([]);
     setImagesURLParams();
   };

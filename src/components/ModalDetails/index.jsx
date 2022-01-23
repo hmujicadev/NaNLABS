@@ -4,8 +4,6 @@ import { Fragment } from "react";
 import Aside from "../Aside";
 
 const ModalDetails = ({ closeModal, isOpen }) => (
-  // Context
-
   <Transition appear show={isOpen} as={Fragment}>
     <Dialog
       as="div"

@@ -14,8 +14,11 @@ const BarButtons = ({ openModalImages }) => {
   const {
     imageSelected,
     imageRedo,
+    setImageRedo,
     imageUndo,
+    setImageUndo,
     imageState,
+    setImageState,
     updateImage,
     imagesURLParams,
   } = useContext(ChallengeContext);
@@ -30,26 +33,37 @@ const BarButtons = ({ openModalImages }) => {
     setIsOpen(true);
   }
 
+  // Functions
   const goBackHistory = () => {
     if (imageUndo.length > 1) {
       if (
-        imageState[imageState.length - 1] !== imageUndo[imageUndo.length - 1]
+        JSON.stringify(imageState[imageState.length - 1]) ===
+        JSON.stringify(imageUndo[imageUndo.length - 1])
       ) {
-        imageRedo.push(imageState[imageState.length - 1]);
-        imageState.push(imageUndo[imageUndo.length - 1]);
+        setImageRedo(imageRedo.concat(imageUndo[imageUndo.length - 1]));
+        setImageState(imageState.concat(imageUndo[imageUndo.length - 2]));
+        updateImage(imageUndo[imageUndo.length - 2]);
+        setImageUndo(
+          imageUndo.filter((state, index) => index !== imageUndo.length - 1)
+        );
+      } else {
+        setImageRedo(imageRedo.concat(imageState[imageState.length - 1]));
+        setImageState(imageState.concat(imageUndo[imageUndo.length - 1]));
+        setImageUndo(
+          imageUndo.filter((state, index) => index !== imageUndo.length - 1)
+        );
+        updateImage(imageUndo[imageUndo.length - 1]);
+      }
+    } else if (Object.entries(imageState[imageState.length - 1]).length !== 0) {
+      if (
+        JSON.stringify(imageRedo[imageRedo.length - 1]) !==
+        JSON.stringify(imageState[imageState.length - 1])
+      ) {
+        setImageRedo(imageRedo.concat(imageState[imageState.length - 1]));
+        setImageState(imageState.concat({}));
         updateImage();
       } else {
-        imageRedo.push(imageUndo[imageUndo.length - 1]);
-        imageState.push(imageUndo[imageUndo.length - 2]);
-        imageUndo.splice(imageUndo.length - 1, 1);
-        updateImage();
-      }
-    } else if (
-      imageState[imageState.length - 1] !== imageUndo[imageUndo.length - 1]
-    ) {
-      if (Object.entries(imageState[imageState.length - 1]).length !== 0) {
-        imageRedo.push(imageState[imageState.length - 1]);
-        imageState.push(imageUndo[imageUndo.length - 1]);
+        setImageState(imageState.concat({}));
         updateImage();
       }
     }
@@ -57,10 +71,13 @@ const BarButtons = ({ openModalImages }) => {
 
   const goNextHistory = () => {
     if (imageRedo.length >= 1) {
-      imageUndo.push(imageRedo[imageRedo.length - 1]);
-      imageState.push(imageRedo[imageRedo.length - 1]);
-      imageRedo.splice(imageRedo.length - 1, 1);
-      updateImage();
+      setImageState(imageState.concat(imageRedo[imageRedo.length - 1]));
+      updateImage(imageRedo[imageRedo.length - 1]);
+      setImageRedo(
+        imageRedo.filter((state, index) => index !== imageRedo.length - 1)
+      );
+      if (Object.entries(imageState[imageState.length - 1]).length !== 0)
+        setImageUndo(imageUndo.concat(imageState[imageState.length - 1]));
     }
   };
 

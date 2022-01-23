@@ -34,7 +34,6 @@ const ModalImages = ({ closeModal, isOpen }) => {
             <Dialog.Overlay className="fixed inset-0" />
           </Transition.Child>
 
-          {/* This element is to trick the browser into centering the modal contents. */}
           <span className="inline-block align-middle" aria-hidden="true">
             &#8203;
           </span>

@@ -2,50 +2,28 @@
 const imgixCategories = [{ label:"Adjustment",selected:true},{ label:"Rotation",selected:false}]
 const imgixRotation = 
 [
-      // {
-      //     "label":"flip",
-      //     "display_name": "flip axis",
-      //     "category": "rotation",
-      //     "available_in": [
-      //       "url",
-      //       "graph"
-      //     ],
-      //     "expects": [
-      //       {
-      //         "type": "string",
-      //         "possible_values": [
-      //           "h",
-      //           "v",
-      //           "hv"
-      //         ]
-      //       }
-      //     ],
-      //     "url": "https://docs.imgix.com/apis/url/rotation/flip",
-      //     "short_description": "Flips an image on a specified axis."
-      //   },
-    
-        {
-          "label":"rot",
-          "display_name": "rotation",
-          "category": "rotation",
-          "available_in": [
-            "url",
-            "graph"
-          ],
-          "expects": [
-            {
-              "type": "number",
-              "suggested_range": {
-                "min": 0,
-                "max": 359
-              }
-            }
-          ],
-          "default": 0,
-          "url": "https://docs.imgix.com/apis/url/rotation/rot",
-          "short_description": "Rotates an image by a specified number of degrees."
-        },
-  ]
+  {
+    "label":"rot",
+    "display_name": "rotation",
+    "category": "rotation",
+    "available_in": [
+      "url",
+      "graph"
+    ],
+    "expects": [
+      {
+        "type": "number",
+        "suggested_range": {
+          "min": 0,
+          "max": 359
+        }
+      }
+    ],
+    "default": 0,
+    "url": "https://docs.imgix.com/apis/url/rotation/rot",
+    "short_description": "Rotates an image by a specified number of degrees."
+  },
+]
 
 const imgixRotationFlip = [
   {

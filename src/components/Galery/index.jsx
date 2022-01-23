@@ -53,7 +53,6 @@ const Galery = ({ selectImageToEdit, closeModal }) => {
         <div className="mt-3 sm:mt-2">
           <div className="sm:hidden">
             <label className="sr-only">Select a tab</label>
-            {/* Use an "onChange" listener to redirect the user to the selected tab URL. */}
             <select
               id="tabs"
               name="tabs"
@@ -91,14 +90,6 @@ const Galery = ({ selectImageToEdit, closeModal }) => {
                   </a>
                 ))}
               </nav>
-
-              <div className="hidden ml-6 bg-gray-100 p-0.5 rounded-lg items-center sm:flex">
-                {/* <UploadIcon
-                  className="h-8 animate animate-bounce bg-white m-auto"
-                  aria-hidden="true"
-                />
-                <span className="">Upload</span> */}
-              </div>
             </div>
           </div>
         </div>

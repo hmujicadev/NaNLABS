@@ -31,22 +31,22 @@ const Tabs = () => {
   const changeParameterValue = async () => {
     const Rangevalue = await inputRange.value;
     const { label, name } = await inputRange.dataset;
-
+    const temporalState = imageState;
     if (Rangevalue > 0) {
-      if (imageState.length > 0) {
-        imageState.push({
+      if (temporalState.length > 0) {
+        temporalState.push({
           ...imageState[imageState.length - 1],
           [name]: `${label}=${Rangevalue}`,
         });
       } else {
-        imageState.push({
+        temporalState.push({
           [name]: `${label}=${Rangevalue}`,
         });
       }
     }
-    setImageState(await imageState);
+    setImageState(temporalState);
 
-    await updateImage();
+    await updateImage(imageState[imageState.length - 1]);
   };
 
   const updateParametersSelected = () => {
