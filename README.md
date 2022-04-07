@@ -9,6 +9,8 @@
 [![Deployed in Netlify](https://www.netlify.com/img/deploy/button.svg)](https://nanlabs-photos.netlify.app/)
 ### Instalación :wrench:
 
+Node version >=12 !Important¡
+
 Recomiendo usar [yarn](https://yarnpkg.com/) a la hora de iniciar el proyecto por ser más rápido y seguro que sobre [npm](https://www.npmjs.com/), de igual forma siéntase libre de usar el que guste, para efectos de esta guía estaré usando *yarn*.
 
 #### Scripts disponibles:

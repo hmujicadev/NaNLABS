@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect, useContext, useRef } from "react";
 import SliderAdjustment from "../SliderAdjustment";
 import SliderRotation from "../SliderRotation";
 import { ChallengeContext } from "../../context/Challenge/ChallengeContext";
@@ -23,9 +23,9 @@ const Tabs = () => {
   const [categorieSelected, setCategorieSelected] = useState(
     imgixCategories[0].label
   );
-  const inputRange = document.querySelector("#customRange")
-    ? document.querySelector("#customRange")
-    : "";
+
+  const reference = useRef();
+  const inputRange = reference.current;
 
   // Functions
   const changeParameterValue = async () => {
@@ -74,7 +74,7 @@ const Tabs = () => {
   // Listeners
   useEffect(() => {
     updateParametersSelected();
-    if (inputRange.value) inputRange.value = inputRange.defaultValue;
+    if (inputRange) inputRange.value = inputRange.defaultValue;
   }, [categories, adjustmentSelected]);
 
   useEffect(() => {
@@ -128,6 +128,7 @@ const Tabs = () => {
                   data-name={parametersSelected.display_name}
                   onChange={() => changeParameterValue()}
                   id="customRange"
+                  ref={reference}
                 />
               </div>
             )}

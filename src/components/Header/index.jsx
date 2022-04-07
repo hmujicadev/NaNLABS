@@ -24,7 +24,7 @@ const Header = () => {
           onClick={() => openModalDetails()}
           alt="transform"
           type="button"
-          className="p-2"
+          className="p-2 visible md:invisible"
         >
           <SparklesIcon className="h-8 text-blue-700 outline-none md:hidden" />
         </button>
